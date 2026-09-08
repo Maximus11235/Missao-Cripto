@@ -1,3 +1,13 @@
+def mdc(a : int, b : int) -> int :
+
+    while b!=0:
+        resto = b%a
+        a = b
+        b = resto
+    return a
+
+
+
 def calcularPhi(numero: int) -> int:
 
     if numero <= 0:
