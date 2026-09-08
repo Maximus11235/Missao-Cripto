@@ -36,10 +36,6 @@ def calcularPhi(numero: int) -> int:
         
     return resultado
 
-# Entrada de dados
-n = int(input())
-print(calcularPhi(n))
-
 
 def expModular(base: int, exp: int, mod: int) -> int:
 
