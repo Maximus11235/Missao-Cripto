@@ -1,47 +1,52 @@
-"""Funções auxiliares de aritmética modular."""
+# Funções auxiliares de aritmética modular
 
 
+# Aritmética modular
 def mod(a, n):
-    """Retorna o resto de ``a`` na divisão por ``n``."""
+    # Retorna o resto de a na divisão por n
     return a % n
 
 
+# Soma módulo n
 def soma_mod(a, b, n):
-    """Soma dois valores módulo ``n``."""
+    # Soma a e b, depois aplica o módulo n
     return (a + b) % n
 
 
+# Subtração módulo n
 def sub_mod(a, b, n):
-    """Subtrai dois valores módulo ``n``."""
+    # Subtrai b de a, depois aplica o módulo n
     return (a - b) % n
 
 
+# Multiplicação módulo n
 def mult_mod(a, b, n):
-    """Multiplica dois valores módulo ``n``."""
+    # Multiplica a por b, depois aplica o módulo n
     return (a * b) % n
 
 
+# Exponenciação módulo n
 def pot_mod(base, exp, n):
-    """Calcula uma potência módulo ``n`` de forma eficiente."""
+    # Calcula base elevado a exp, módulo n, de forma eficiente
     return pow(base, exp, n)
 
 
+# MDC pelo algoritmo de Euclides iterativo
 def mdc(a, b):
-    """Calcula o MDC pelo algoritmo de Euclides iterativo."""
     while b != 0:
         a, b = b, a % b
     return abs(a)
 
 
+# MDC pelo algoritmo de Euclides recursivo
 def mdc_recursivo(a, b):
-    """Calcula o MDC pelo algoritmo de Euclides recursivo."""
     if b == 0:
         return abs(a)
     return mdc_recursivo(b, a % b)
 
 
+# Algoritmo de Euclides estendido
 def euclides_estendido(a, b):
-    """Retorna o MDC e os coeficientes da identidade de Bézout."""
     if b == 0:
         sinal = -1 if a < 0 else 1
         return abs(a), sinal, 0
@@ -52,8 +57,8 @@ def euclides_estendido(a, b):
     return mdc_val, x, y
 
 
+# Inverso modular pelo algoritmo de Euclides estendido
 def inverso_modular(a, n):
-    """Calcula o inverso de ``a`` módulo ``n``."""
     if n <= 1:
         raise ValueError("O módulo deve ser maior que 1")
 
@@ -63,13 +68,13 @@ def inverso_modular(a, n):
     return x % n
 
 
+# Verificação de coprimalidade
 def sao_coprimos(a, b):
-    """Informa se ``a`` e ``b`` são coprimos."""
     return mdc(a, b) == 1
 
 
+# Teste de primalidade
 def eh_primo(n):
-    """Verifica por divisão de tentativa se ``n`` é primo."""
     if n < 2:
         return False
     if n in (2, 3):
@@ -85,8 +90,8 @@ def eh_primo(n):
     return True
 
 
+# Totiente de Euler
 def totiente_euler(n):
-    """Calcula a função totiente de Euler para um inteiro positivo."""
     if n <= 0:
         raise ValueError("n deve ser um inteiro positivo")
 
@@ -104,8 +109,8 @@ def totiente_euler(n):
     return resultado
 
 
+# Resolução de congruência linear
 def congruencia_linear(a, b, n):
-    """Resolve ``a*x = b (mod n)`` e retorna todas as soluções."""
     if n <= 0:
         raise ValueError("O módulo deve ser um inteiro positivo")
 
