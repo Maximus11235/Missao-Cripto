@@ -2,6 +2,7 @@
 
 # O ponto (.) antes de 'max' significa "procure no mesmo diretório deste __init__.py"
 from .max import euclides_estendido, inverso_multiplicativo, eh_primo
+from .Kaique import mdc, calcularPhi, expModular, teoremaChinesResto
 
 # Se você tivesse funções nos outros arquivos, faria o mesmo:
 # from .Andressa import nome_da_funcao_da_andressa
