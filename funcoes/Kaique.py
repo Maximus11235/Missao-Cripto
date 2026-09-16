@@ -1,11 +1,5 @@
-def mdc(a : int, b : int) -> int :
-
-    while b!=0:
-        resto = b%a
-        a = b
-        b = resto
-    return a
-
+from .max import inverso_multiplicativo
+from .Andressa import mdc
 
 
 def calcularPhi(numero: int) -> int:
@@ -70,7 +64,7 @@ def teoremaChinesResto(lista_restos: list, lista_modulos: list) -> int:
         modulo_parcial = modulo_total // modulo_atual
 
         # Encontra o inverso modular do módulo parcial em relação ao módulo atual
-        inverso_parcial = inversoModular(modulo_parcial, modulo_atual)
+        inverso_parcial = inverso_multiplicativo(modulo_parcial, modulo_atual)
 
         # Acumula a parcela da solução com base no resto, módulo parcial e inverso
         soma_total += resto_atual * modulo_parcial * inverso_parcial
