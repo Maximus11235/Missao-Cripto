@@ -1,6 +1,4 @@
 from .max import inverso_multiplicativo
-from .Andressa import mdc
-
 
 def calcularPhi(numero: int) -> int:
 
@@ -71,3 +69,59 @@ def teoremaChinesResto(lista_restos: list, lista_modulos: list) -> int:
 
     # O resultado final é o resto da divisão pelo módulo total
     return soma_total % modulo_total
+
+def multiplicar_matriz(A, B, modulo=None):
+    linhas_A, colunas_A = len(A), len(A[0])
+    linhas_B, colunas_B = len(B), len(B[0])
+
+    if colunas_A != linhas_B:
+        raise ValueError("Número de colunas de A deve ser igual ao número de linhas de B.")
+
+    resultado = [[0 for _ in range(colunas_B)] for _ in range(linhas_A)]
+
+    for i in range(linhas_A):
+        for j in range(colunas_B):
+            soma = sum(A[i][k] * B[k][j] for k in range(colunas_A))
+            resultado[i][j] = soma % modulo if modulo else soma
+
+    return resultado
+
+
+def determinante(matriz):
+    n = len(matriz)
+    
+    # Casos base para otimização
+    if n == 1:
+        return matriz[0][0]
+    if n == 2:
+        return (matriz[0][0] * matriz[1][1]) - (matriz[0][1] * matriz[1][0])
+
+    det = 0
+    for c in range(n):
+        # Cria a submatriz ignorando a linha 0 e a coluna c
+        submatriz = [linha[:c] + linha[c+1:] for linha in matriz[1:]]
+        sinal = (-1) ** c
+        det += sinal * matriz[0][c] * determinante(submatriz)
+        
+    return det
+
+
+def adjunta(matriz):
+    n = len(matriz)
+    if n == 1:
+        return [[1]]
+        
+    cofatores = []
+    for i in range(n):
+        linha_cofatores = []
+        for j in range(n):
+            # Cria a submatriz removendo a linha i e a coluna j
+            submatriz = [linha[:j] + linha[j+1:] for k, linha in enumerate(matriz) if k != i]
+            sinal = (-1) ** (i + j)
+            linha_cofatores.append(sinal * determinante(submatriz))
+        cofatores.append(linha_cofatores)
+        
+    # A adjunta é a transposta da matriz de cofatores
+    matriz_adjunta = [[cofatores[j][i] for j in range(n)] for i in range(n)]
+    
+    return matriz_adjunta

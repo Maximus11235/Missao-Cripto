@@ -2,7 +2,7 @@
 
 # O ponto (.) antes de 'max' significa "procure no mesmo diretório deste __init__.py"
 from .max import euclides_estendido, inverso_multiplicativo, eh_primo
-from .Kaique import (mdc, calcularPhi, expModular,teoremaChinesResto)
+from .Kaique import (calcularPhi, expModular,teoremaChinesResto, multiplicar_matriz, determinante, adjunta)
 
 from .Andressa import (
     congruencia_linear,
@@ -36,4 +36,7 @@ __all__ = [
     "calcularPhi",
     "expModular",
     "teoremaChinesResto",
+    "multiplicar_matriz",
+    "determinante",
+    "adjunta",
 ]
