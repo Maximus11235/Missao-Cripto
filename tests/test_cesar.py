@@ -24,6 +24,11 @@ class TestCifraCesar(unittest.TestCase):
         mensagem = "TRANSFERIR DOCUMENTO"
         cifrado = encription_cesar(mensagem, 5)
         decifrado = decription_cesar(cifrado, 5)
+
+        print(f"Original: {mensagem}")
+        print(f"Cifrado : {cifrado}")
+        print(f"Decifrado: {decifrado}")
+
         self.assertEqual(mensagem, decifrado)
 
 if __name__ == "__main__":

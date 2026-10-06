@@ -12,6 +12,10 @@ class TestCifraHill(unittest.TestCase):
         texto_original = "BOLA" # 4 letras, múltiplo de 2 (tamanho da chave)
         texto_cifrado = encription_hill(texto_original, self.chave_valida)
         texto_decifrado = decription_hill(texto_cifrado, self.chave_valida)
+
+        print(f"Original: {texto_original}")
+        print(f"Cifrado : {texto_cifrado}")
+        print(f"Decifrado: {texto_decifrado}")
         
         self.assertEqual(texto_original, texto_decifrado)
 
@@ -19,6 +23,10 @@ class TestCifraHill(unittest.TestCase):
         texto_impar = "BOL" # 3 letras. O padding deve torná-lo "BOLL"
         texto_cifrado = encription_hill(texto_impar, self.chave_valida)
         texto_decifrado = decription_hill(texto_cifrado, self.chave_valida)
+
+        print(f"\nOriginal: {texto_impar}")
+        print(f"Cifrado : {texto_cifrado}")
+        print(f"Decifrado: {texto_decifrado}")
         
         self.assertEqual("BOLL", texto_decifrado)
 
