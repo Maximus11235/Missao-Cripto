@@ -9,8 +9,13 @@ from .des import (
     decifrar_ofb as decifrar_des_ofb,
 )
 from .rc5 import (
-    cifrar_cbc as cifrar_rc5_cbc,
-    decifrar_cbc as decifrar_rc5_cbc,
+    cifrar_arquivo as cifrar_rc5_cbc,
+    decifrar_arquivo as decifrar_rc5_cbc,
+)
+
+from .aes import (
+    cifrar_ecb as cifrar_aes_ecb,
+    decifrar_ecb as decifrar_aes_ecb,
 )
 
 __all__ = [
@@ -24,4 +29,6 @@ __all__ = [
     "decifrar_des_ofb",
     "cifrar_rc5_cbc",
     "decifrar_rc5_cbc",
+    "cifrar_aes_ecb",
+    "decifrar_aes_ecb",
 ]
